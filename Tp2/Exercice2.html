@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="monTexte">Voici le texte à afficher ou masquer.</p>
+<button id="monBtn" onclick="basculerTexte()">Masquer</button>
+
+<script>
+function basculerTexte() {
+  let p = document.getElementById("monTexte");
+  let btn = document.getElementById("monBtn");
+
+  if (p.style.display === "none") {
+    p.style.display = "block";
+    btn.textContent = "Masquer";
+  } else {
+    p.style.display = "none";
+    btn.textContent = "Afficher";
+  }
+}
+</script>
+</body>
+</html>

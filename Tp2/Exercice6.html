@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    .menu{
+        max-height:0;overflow:hidden;background-color:lightyellow;
+        transition:max-height 0.5s ease;
+         padding: 0;
+         margin: 0;
+         width:100%;
+         font-size: 30px;
+    }
+    .menu.open{
+        max-height:100vh;
+    }
+    #btn{
+        font-size: 20px;
+        padding:10px 20px;
+        cursor:pointer;
+    }
+    .menu li {
+     padding: 12px 15px;      /* blassa 7ol kol choix */
+     cursor: pointer;
+}
+.menu li:hover {
+  background-color: rgba(255, 217, 0, 0.479);
+}
+
+
+
+    </style>
+</head>
+<body>
+    <button id="btn" type="button">Catégories</button>
+    <ul id="menu" class="menu">
+  <li>Hommes</li>
+  <li>Femmes</li>
+  <li>Enfants</li>
+  <li>Chaussures</li>
+  <li>Accessoires</li>
+  <li>Sacs</li>
+  <li>Beauté et soins</li>
+  <li>Bijoux et montres</li>
+  <li>Maison et quotidien</li>
+    </ul>
+    <script>
+        let button=document.getElementById("btn");
+        let menu=document.getElementById("menu");
+        button.addEventListener("click",function(){
+            menu.classList.toggle("open");
+        });
+    </script>
+</body>
+</html>

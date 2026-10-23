@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #todo{
+            width: 300px;
+        padding: 10px;
+        border: 8px solid black;
+        box-shadow: 4px 4px 8px gray;
+        }
+    </style>
+</head>
+<body>
+   <div id="todo">
+    <input type="text" id="tache" placeholder="ajouter une tâche"><button id="btn1">Ajouter</button>
+    
+    <ul id="liste">
+        <li>etudier Angular<button class="btn2">supprimer</button></li>
+        <li>manger<button class="btn2">supprimer</button></li>
+        <li>faire la sieste<button class="btn2">supprimer</button></li>
+    </ul>
+   </div>
+   <script>
+    let tache=document.getElementById("tache");
+    let button=document.getElementById("btn1");
+    let btn=document.querySelectorAll(".btn2");
+    let liste=document.getElementById("liste");
+    button.addEventListener("click",function(){
+        if(tache.value.trim()===""){
+            return;
+        }
+        let liElement=document.createElement("li");
+        liElement.textContent=tache.value;
+        let btn3=document.createElement("button");
+        btn3.textContent="supprimer";
+        btn3.classList.add("btn2");
+        liElement.appendChild(btn3);
+         liste.appendChild(liElement);
+         // vider l'input
+        tache.value = "";
+    });
+    liste.addEventListener("click",function(event){
+        if(event.target.classList.contains("btn2")){
+            event.target.parentElement.remove();
+        }
+
+    });
+   </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="calculatrice">
+        <input type="number" id="nbr1">
+        <input type="number" id="nbr2">
+        <button type="button" id="btnPlus">+</button>
+        <button type="button" id="btnMoins">-</button>
+        <button type="button" id="btnMult">*</button>
+        <button type="button" id="btnDiv">/</button>
+        <p id="resultat"></p>
+    </form>
+    <script>
+        let form=document.getElementById("calculatrice");
+        let caseNbr1=document.getElementById("nbr1");
+        let caseNbr2=document.getElementById("nbr2");
+        let btnPlus=document.getElementById("btnPlus");
+        let btnMoins=document.getElementById("btnMoins");
+        let btnMult=document.getElementById("btnMult");
+        let btnDiv=document.getElementById("btnDiv");
+        let caseResultat=document.getElementById("resultat");
+        function calculer(operation){
+            let nbr1=Number(caseNbr1.value);
+            let nbr2=Number(caseNbr2.value);
+            let valeur;
+            if(operation==="+"){
+                valeur=nbr1+nbr2;
+            } else if (operation==="-"){
+                valeur=nbr1-nbr2;
+            }else if (operation==="*"){
+                valeur=nbr1*nbr2;
+            } else if(operation==="/"){
+                if(nbr2==0){
+                    alert("operation impossible!");
+                    return;
+                }else{
+                    valeur=nbr1/nbr2;
+                }
+            }
+caseResultat.textContent = valeur; 
+        }
+        btnPlus.addEventListener("click",function(){calculer("+");});
+        btnMoins.addEventListener("click",function(){calculer("-");});
+        btnMult.addEventListener("click",function(){calculer("*");});
+        btnDiv.addEventListener("click",function(){calculer("/");});
+
+
+    </script>
+</body>
+</html>

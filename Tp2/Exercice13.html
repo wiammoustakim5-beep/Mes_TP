@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barre de Progression</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+    .progress-container {
+      width: 80%;
+      max-width: 600px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 0 auto 20px auto;
+      overflow: hidden;
+    }
+    .progress-bar {
+      width: 0%;
+      height: 30px;
+      background-color: #4CAF50;
+      border-radius: 4px;
+      transition: width 0.1s linear; 
+    }
+    button {
+      background-color: #008CBA;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #007399;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Barre de Progression</h2>
+
+  <!-- Barre de progression -->
+  <div class="progress-container">
+    <div id="myBar" class="progress-bar"></div>
+  </div>
+
+  <!-- Bouton Démarrer -->
+  <button onclick="demarrerProgression()">Démarrer la Progression</button>
+
+  <script>
+    function demarrerProgression() {
+      let elem = document.getElementById("myBar");
+      let width = 0;
+      elem.style.width = "0%";
+
+
+    
+      let id = setInterval(frame, 30);
+
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          
+        } else {
+          width++;
+          elem.style.width = width + "%"; 
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

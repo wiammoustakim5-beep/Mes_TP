@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <style>
+    #clavier{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:5px;
+        width:250px;
+    }
+
+.zero {
+    grid-column: span 2;
+}
+
+
+    
+    </style>
+</head>
+<body>
+    <form id="calculatrice" > 
+        <input type="text" id="ecran" readonly>
+    </form>
+    <div id="clavier"></div>
+    <script>
+        let clavier=document.getElementById("clavier");
+        let ecren=document.getElementById("ecran");
+        let touches=["C", "⌫", "/", "*", "7", "8", "9", "-", "4", "5", "6", "+", "1", "2", "3", "=", "0", "."];
+        touches.forEach(function(t){
+            let button=document.createElement("button");
+            button.textContent=t;
+            if(t==="0"){
+                button.classList.add("zero");
+            }
+            button.addEventListener("click",function(){
+                if(t==="C"){
+                    ecran.value="";
+                }else if(t==="⌫"){
+                    ecran.value=ecran.value.slice(0,-1);
+                }else if(t==="="){
+                    ecran.value=eval(ecran.value);
+                }else{
+                    ecran.value+=t;
+                }
+
+            });
+            clavier.appendChild(button);
+        });
+    </script>
+</body>
+</html>

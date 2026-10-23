@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitrage de tableau</title>
+    <style>
+        #recherche{
+            width:100%;
+            padding:12px;
+            margin-left:45px ;
+            font-size:16px;
+            border:2px solid;
+            border-radius:10px;
+        }
+        
+        li {
+        list-style: none;
+        padding: 12px;
+        margin-top: 6px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        }
+        h1{
+            color: darkgreen;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste de produits</h1>
+    <input id="recherche" type="text" placeholder="Rechercher un produit...">
+    <ul id="liste"> <li>Ordinateur Portable</li>
+  <li>Smartphone</li>
+  <li>Casque Audio</li>
+  <li>Écran LED</li>
+  <li>Clavier Mécanique</li>
+  <li>Souris Sans Fil</li>
+    </ul>
+    <script>
+        let recherche=document.getElementById("recherche");
+        let liste=document.querySelectorAll("#liste li");
+        recherche.addEventListener("input",function(){
+            let text=recherche.value.toLowerCase();
+            liste.forEach(function(produit){
+                let nom=produit.textContent.toLowerCase();
+                if(nom.includes(text)){
+                    produit.style.display="";
+                }else{
+                    produit.style.display="none";
+                }
+
+                
+            });
+        });
+    </script>
+</body>
+</html>

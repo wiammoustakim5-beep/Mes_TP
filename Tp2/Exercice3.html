@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> formulaire de validation</h1>
+    <form id="monFormulaire">
+        <input type="text" id="nom" placeholder="nom">
+        <input type="text" id="email" placeholder="email">
+        <button type="submit">soumettre</button>
+    </form>
+    <script>
+        let form=document.getElementById("monFormulaire");
+        let caseNom=document.getElementById("nom");
+        let caseEmail=document.getElementById("email");
+        form.addEventListener("submit",function( event){
+            if(caseNom.value===""){
+                event.preventDefault();
+                alert("le nom est vide");
+            }
+            if(caseEmail.value===""){
+                event.preventDefault();
+                    alert("l'email est vide");
+                }
+                else{
+                    event.preventDefault();
+                    alert("la formulaire est validé");
+                }
+            }
+        )
+    </script>
+    
+</body>
+</html>

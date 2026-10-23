@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Thème clair et sombre</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background-color: white;
+            color: black;
+        }
+
+        .sombre {
+            background-color: #111;
+            color: white;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Basculer entre Thème Clair et Sombre</h2>
+
+    <button id="btn">Activer le Thème Sombre</button>
+
+    <script>
+        let btn = document.getElementById("btn");
+
+        if (localStorage.getItem("theme") === "sombre") {
+            document.body.classList.add("sombre");
+            btn.textContent = "Activer le Thème Clair";
+        }
+
+        btn.addEventListener("click", function() {
+
+            document.body.classList.toggle("sombre");
+
+            if (document.body.classList.contains("sombre")) {
+                btn.textContent = "Activer le Thème Clair";
+                localStorage.setItem("theme", "sombre");
+            } else {
+                btn.textContent = "Activer le Thème Sombre";
+                localStorage.setItem("theme", "clair");
+            }
+
+        });
+    </script>
+</body>
+</html>

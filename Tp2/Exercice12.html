@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Page avec JavaScript</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+#grid-container {
+  display: grid;
+  gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.layout-grand {
+  grid-template-columns: 1fr 1fr;
+}
+.layout-petit {
+  grid-template-columns: 1fr;
+}
+.boite {
+  background-color: #3498db;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+  </style>
+</head>
+<body>
+
+  <h1>Responsive Page avec JavaScript</h1>
+
+  <!-- Conteneur principal des boîtes -->
+  <div id="grid-container" class="layout-grand">
+    <div class="boite">Boîte 1</div>
+    <div class="boite">Boîte 2</div>
+    <div class="boite">Boîte 3</div>
+    <div class="boite">Boîte 4</div>
+  </div>
+
+  <script> 
+
+function adapterLayout() {
+  const container = document.getElementById('grid-container');
+  const largeurEcran = window.innerWidth;
+  if (largeurEcran < 600) {
+    container.classList.remove('layout-grand');
+    container.classList.add('layout-petit');
+  } else {
+    // Sinon, repasse à 2 colonnes (layout-grand)
+    container.classList.remove('layout-petit');
+    container.classList.add('layout-grand');
+  }
+}
+
+adapterLayout();
+
+window.addEventListener('resize', adapterLayout);
+  </script>
+</body>
+</html>

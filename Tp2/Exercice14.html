@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Drag and Drop Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .conteneur {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+    }
+    .zone {
+      width: 220px;
+      height: 220px;
+      padding: 10px;
+      border-radius: 10px;
+      background: #f2f2f2;
+      border: 2px solid #ccc;
+    }
+    #zone2 {
+      border: 2px dashed #555;
+      background: #fafafa;
+    }
+    .element {
+      background: #4caf50;
+      color: white;
+      padding: 12px;
+      margin: 15px auto;
+      width: 80px;
+      border-radius: 5px;
+      cursor: grab;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Drag and Drop Example</h2>
+
+  <div class="conteneur">
+    <div class="zone" id="zone1">
+      <h3>À déplacer</h3>
+      <div class="element" id="e1" draggable="true">Élément 1</div>
+      <div class="element" id="e2" draggable="true">Élément 2</div>
+      <div class="element" id="e3" draggable="true">Élément 3</div>
+    </div>
+
+    <!-- Zone de dépôt -->
+    <div class="zone" id="zone2">
+      <h3>Déposer ici</h3>
+    </div>
+  </div>
+
+  <script>
+    const elements = document.querySelectorAll('.element');
+    const zones = document.querySelectorAll('.zone');
+
+    // 1. Au début du glissement : on mémorise l'id de l'élément
+    elements.forEach(el => {
+      el.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('text', e.target.id);
+      });
+    });
+
+    zones.forEach(zone => {
+      // 2. Autoriser le dépôt (par défaut, c'est interdit)
+      zone.addEventListener('dragover', e => e.preventDefault());
+
+      // 3. Au dépôt : on récupère l'élément et on l'ajoute dans la zone
+      zone.addEventListener('drop', e => {
+        e.preventDefault();
+        const id = e.dataTransfer.getData('text');
+        zone.appendChild(document.getElementById(id));
+      });
+    });
+  </script>
+
+</body>
+</html>
