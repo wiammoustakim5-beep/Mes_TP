@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Trier une liste</title>
+</head>
+<body>
+
+    <h2>Tri d'une liste de nombres</h2>
+
+    <input type="text" id="nombres" placeholder="Ex: 5, 2, 9, 1">
+    <button onclick="afficherTri()">Trier</button>
+
+    <p id="resultat"></p>
+
+    <script>
+        function trier(liste) {
+            const copie = liste.slice();
+
+            for (let i = 0; i < copie.length - 1; i++) {
+                for (let j = 0; j < copie.length - 1 - i; j++) {
+                    if (copie[j] > copie[j + 1]) {
+                        const temp = copie[j];
+                        copie[j] = copie[j + 1];
+                        copie[j + 1] = temp;
+                    }
+                }
+            }
+
+            return copie;
+        }
+
+        function afficherTri() {
+            const texte = document.getElementById("nombres").value;
+            const liste = texte.split(",").map(Number);
+            const resultat = trier(liste);
+
+            document.getElementById("resultat").textContent =
+                "Liste triée : " + resultat.join(", ");
+        }
+    </script>
+
+</body>
+</html>

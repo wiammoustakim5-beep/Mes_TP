@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon QCM</title>
+</head>
+<body>
+
+    <h1>Questionnaire QCM</h1>
+
+    <form id="qcm">
+
+        <h3>Question 1 : Quels sont des langages web ?</h3>
+        <label><input type="checkbox" name="q1" value="a"> HTML</label><br>
+        <label><input type="checkbox" name="q1" value="b"> CSS</label><br>
+        <label><input type="checkbox" name="q1" value="c"> JavaScript</label><br>
+        <label><input type="checkbox" name="q1" value="d"> Photoshop</label><br>
+
+        <h3>Question 2 : Quels éléments sont des balises HTML ?</h3>
+        <label><input type="checkbox" name="q2" value="a"> &lt;p&gt;</label><br>
+        <label><input type="checkbox" name="q2" value="b"> &lt;h1&gt;</label><br>
+        <label><input type="checkbox" name="q2" value="c"> &lt;body&gt;</label><br>
+        <label><input type="checkbox" name="q2" value="d"> print()</label><br>
+
+        <h3>Question 3 : Quelles affirmations sur CSS sont vraies ?</h3>
+        <label><input type="checkbox" name="q3" value="a"> CSS permet de changer les couleurs</label><br>
+        <label><input type="checkbox" name="q3" value="b"> CSS permet de modifier les polices</label><br>
+        <label><input type="checkbox" name="q3" value="c"> CSS organise l'apparence de la page</label><br>
+        <label><input type="checkbox" name="q3" value="d"> CSS remplace toujours HTML</label><br>
+
+        <h3>Question 4 : Quelle balise crée un lien ?</h3>
+        <label><input type="radio" name="q4" value="a"> &lt;img&gt;</label><br>
+        <label><input type="radio" name="q4" value="b"> &lt;a&gt;</label><br>
+        <label><input type="radio" name="q4" value="c"> &lt;table&gt;</label><br>
+        <label><input type="radio" name="q4" value="d"> &lt;form&gt;</label><br>
+
+        <h3>Question 5 : Quelle balise insère du JavaScript dans HTML ?</h3>
+        <label><input type="radio" name="q5" value="a"> &lt;style&gt;</label><br>
+        <label><input type="radio" name="q5" value="b"> &lt;css&gt;</label><br>
+        <label><input type="radio" name="q5" value="c"> &lt;script&gt;</label><br>
+        <label><input type="radio" name="q5" value="d"> &lt;title&gt;</label><br>
+
+        <br>
+
+        <button type="reset">Réinitialiser</button>
+        <button type="button" onclick="afficherCorrection()">Afficher la correction</button>
+        <button type="button" onclick="afficherResultat()">Afficher le résultat</button>
+
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

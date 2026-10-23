@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Somme de trois temps</title>
+</head>
+<body>
+
+    <p>Entrer le premier temps :</p>
+    Heure(s) <input type="text" id="h1">
+    Minute(s) <input type="text" id="m1">
+    Seconde(s) <input type="text" id="s1">
+
+    <p>Entrer le deuxième temps :</p>
+    Heure(s) <input type="text" id="h2">
+    Minute(s) <input type="text" id="m2">
+    Seconde(s) <input type="text" id="s2">
+
+    <p>Entrer le troisième temps :</p>
+    Heure(s) <input type="text" id="h3">
+    Minute(s) <input type="text" id="m3">
+    Seconde(s) <input type="text" id="s3">
+
+    <p>Total des trois temps :</p>
+    Jour(s) <input type="text" id="jours">
+    Heure(s) <input type="text" id="heures">
+    Minute(s) <input type="text" id="minutes">
+    Seconde(s) <input type="text" id="secondes">
+
+    <br><br>
+    <button onclick="somme()">Somme</button>
+    <button onclick="effacer()">Effacer</button>
+
+    <script>
+        function lire(id) {
+            var valeur = parseInt(document.getElementById(id).value, 10);
+            if (isNaN(valeur)) {
+                valeur = 0;
+            }
+            return valeur;
+        }
+
+        function somme() {
+            var total = 0;
+
+            for (var i = 1; i <= 3; i++) {
+                total = total + lire("h" + i) * 3600
+                              + lire("m" + i) * 60
+                              + lire("s" + i);
+            }
+
+            var jours = Math.floor(total / 86400);
+            total = total % 86400;
+
+            var heures = Math.floor(total / 3600);
+            total = total % 3600;
+
+            var minutes = Math.floor(total / 60);
+            var secondes = total % 60;
+
+            document.getElementById("jours").value = jours;
+            document.getElementById("heures").value = heures;
+            document.getElementById("minutes").value = minutes;
+            document.getElementById("secondes").value = secondes;
+        }
+
+        function effacer() {
+            var ids = ["h1","m1","s1","h2","m2","s2","h3","m3","s3",
+                       "jours","heures","minutes","secondes"];
+
+            for (var i = 0; i < ids.length; i++) {
+                document.getElementById(ids[i]).value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>

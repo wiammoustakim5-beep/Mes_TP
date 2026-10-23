@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vérification email</title>
+</head>
+<body>
+
+    <h2>Vérification de l'email</h2>
+
+    <input type="text" id="email" placeholder="Entrez votre email">
+    <button onclick="verifierEmail()">Vérifier</button>
+
+    <p id="message"></p>
+
+    <script>
+        function verifierEmail() {
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message");
+
+            const posArobase = email.indexOf("@");
+            const partieAvant = email.substring(0, posArobase);
+            const partieApres = email.substring(posArobase + 1);
+
+            let erreur = "";
+
+            if (posArobase === -1) {
+                erreur = "Il manque le caractère @.";
+            } else if (posArobase !== email.lastIndexOf("@")) {
+                erreur = "Il y a plus d'un @.";
+            } else if (!/[a-zA-Z0-9]/.test(partieAvant)) {
+                erreur = "Il faut au moins une lettre ou un chiffre avant @.";
+            } else if (partieApres.indexOf(".") === -1) {
+                erreur = "Il faut un point après @.";
+            } else if (partieApres.startsWith(".") || partieApres.endsWith(".")) {
+                erreur = "Le point ne peut pas être au début ou à la fin après @.";
+            }
+
+            if (erreur === "") {
+                message.style.color = "green";
+                message.textContent = "Email valide ✅";
+            } else {
+                message.style.color = "red";
+                message.textContent = "Email invalide ❌ : " + erreur;
+            }
+        }
+    </script>
+
+</body>
+</html>
